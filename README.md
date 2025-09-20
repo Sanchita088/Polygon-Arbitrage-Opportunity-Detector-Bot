@@ -54,10 +54,10 @@ It periodically fetches token prices from the DEXes, identifies profitable price
 3. Build and run the bot:
    ```bah
    cargo run --release
-How It Works
-The bot connects to the Polygon network via the configured RPC URL.
-It queries the getAmountsOut function on the Uniswap V2 Router contracts of two DEXes to get the output amount of USDC for a fixed input amount of WETH.
-It compares the prices from both DEXes to find if buying on one and selling on the other yields a profit above the configured threshold.
-It calculates a simulated profit by subtracting a fixed gas cost.
-If an opportunity is found, it logs the details (timestamp, buy DEX, sell DEX, prices, profit) into a SQLite database (arbitrage_opportunities.db).
-The bot repeats this process periodically (every 30 seconds by default).
+### How It Works:
+1. The bot connects to the Polygon network via the configured RPC URL.
+2. It queries the getAmountsOut function on the Uniswap V2 Router contracts of two DEXes to get the output amount of USDC for a fixed input amount of WETH.
+3. It compares the prices from both DEXes to find if buying on one and selling on the other yields a profit above the configured threshold.
+4. It calculates a simulated profit by subtracting a fixed gas cost.
+5. If an opportunity is found, it logs the details (timestamp, buy DEX, sell DEX, prices, profit) into a SQLite database (arbitrage_opportunities.db).
+6. The bot repeats this process periodically (every 30 seconds by default).
